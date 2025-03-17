@@ -2,3 +2,27 @@
 @use 'styles/layout' as l;
 @use 'styles/sizing' as s;
 @use 'styles/lapino' as la;
+
+html {
+  background: c.$dzelapino-void;
+  color: c.$dzelapino-pink;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > body {
+    margin: 0;
+    padding: s.$smaller-spacing-value;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-width: s.$app-max-width;
+    width: 100%;
+  }
+
+  a {
+    color: c.$dzelapino-toxic;
+  }
+}

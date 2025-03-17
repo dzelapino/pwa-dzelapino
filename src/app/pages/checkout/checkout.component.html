@@ -1,0 +1,17 @@
+<div>
+  <h1>
+    Checkout
+  </h1>
+
+  <app-button
+    label="Place order"
+    icon="add"
+    iconStyle="filled"
+    iconPosition="left"
+    variant="primary"
+    [loading]="isHandlingOrder"
+    (onClick)="submitOrder()"
+  ></app-button>
+
+  <a routerLink="/order">Place order</a>
+</div>

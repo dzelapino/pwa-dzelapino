@@ -1,6 +1,8 @@
+$app-max-width: 1600px;
+
+$larger-spacing-value: 1rem;
 $default-spacing-value: 0.5rem;
-$default-gap-size: $default-spacing-value;
-$default-padding-size: $default-spacing-value;
+$smaller-spacing-value: 0.3rem;
 $default-border-radius: 25px;
 $default-border-size: 3px;
 $default-long-button-width: min(50%, 200px);
@@ -9,4 +11,6 @@ $default-button-height: 50px;
 
 $font-size-huge: 2.5rem;
 $font-size-larger: 1.6rem;
-$font-size-smaller: 1.2rem;
+$font-size-medium: 1.2rem;
+$font-size-normal: 1rem;
+$font-size-small: 0.8rem;

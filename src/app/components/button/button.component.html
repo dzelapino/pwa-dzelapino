@@ -1,0 +1,22 @@
+<button
+  [ngClass]="['btn', variant, size, iconOnly ? 'icon-only' : '']"
+  [attr.aria-label]="computedAriaLabel"
+  [disabled]="disabled || loading"
+  (click)="onClick.emit($event)"
+>
+  <span *ngIf="loading" class="fade-wrap" [@fade]>
+    <span class="spinner" role="status" aria-hidden="true"></span>
+  </span>
+
+  <span *ngIf="!loading && icon && iconPosition === 'left'" class="fade-wrap" [@fade]>
+    <span [ngClass]="['icon', 'left', materialIconStyleClass]">{{ icon }}</span>
+  </span>
+
+  <span *ngIf="!iconOnly" class="fade-wrap label" [@fade]>
+    {{ loading && loadingText ? loadingText : label }}
+  </span>
+
+  <span *ngIf="!loading && icon && iconPosition === 'right'" class="fade-wrap" [@fade]>
+    <span [ngClass]="['icon', 'right', materialIconStyleClass]">{{ icon }}</span>
+  </span>
+</button>
