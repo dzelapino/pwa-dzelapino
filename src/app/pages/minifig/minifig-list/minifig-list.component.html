@@ -1,0 +1,29 @@
+<div>
+
+  <span>
+    Lista figurek
+  </span>
+
+  <ul>
+    <li *ngFor="let minifig of minifigs">
+      <strong>{{ minifig.name }}</strong> - {{ minifig.theme }} -
+      <span *ngIf="minifig.price !== undefined; else brakCeny">
+        {{ minifig.price }} zł
+      </span>
+      <ng-template #brakCeny>Brak ceny</ng-template>
+      <button (click)="startEditing(minifig)">✏️ Edytuj</button>
+      <button (click)="deleteMinifig(minifig.id)">❌ Usuń</button>
+      <button (click)="addToCart(minifig)" [disabled]="isInCart(minifig)">➕ Dodaj do koszyka</button>
+    </li>
+  </ul>
+
+  <app-minifig-edit
+    *ngIf="editedMinifig"
+    [minifig]="editedMinifig"
+    (minifigUpdated)="onMinifigUpdated($event)"
+    (cancelEditing)="cancelEditing()">
+  </app-minifig-edit>
+
+  <app-minifig-form (addMinifigEvent)="onMinifigAdded($event)"></app-minifig-form>
+
+</div>

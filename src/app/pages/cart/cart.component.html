@@ -1,7 +1,17 @@
 <div>
-  <h1>
-    CART
-  </h1>
+  <h3>Twój koszyk</h3>
+  <ul>
+    <li *ngFor="let minifig of cart">
+      <strong>{{ minifig.name }}</strong> - {{ minifig.theme }} - {{ minifig.price }}
+      <button (click)="removeFromCart(minifig)">❌ Usuń</button>
+    </li>
+  </ul>
+
+  <p *ngIf="cart.length === 0">Koszyk jest pusty.</p>
 
   <a routerLink="/checkout">Checkout</a>
+
+  <p><strong>Całkowita wartość zamówienia:</strong> {{ totalPrice }}</p>
+
+  <p *ngIf="notificationMessage" class="notification">{{ notificationMessage }}</p>
 </div>

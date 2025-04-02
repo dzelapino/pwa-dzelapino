@@ -1,0 +1,12 @@
+mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+mat-dialog-actions {
+  justify-content: flex-end;
+}

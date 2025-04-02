@@ -1,0 +1,8 @@
+<div *ngIf="user; else loginForm">
+  <p>Witaj, {{ user.username }}!</p>
+  <button (click)="logout()">🚪 Wyloguj</button>
+</div>
+
+<ng-template #loginForm>
+  <button mat-button (click)="openLoginDialog()">🔓 Zaloguj</button>
+</ng-template>
