@@ -11,10 +11,10 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 
   > body {
     margin: 0;
-    padding: s.$smaller-spacing-value;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -22,8 +22,13 @@ html {
     width: 100%;
   }
 
+  > body > app-root {
+    height: 100%;
+    padding: s.$larger-spacing-value;
+  }
+
   a {
-    color: c.$dzelapino-toxic;
+    color: c.$dzelapino-blue;
   }
 }
 

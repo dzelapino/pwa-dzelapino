@@ -6,13 +6,15 @@ import {NgIf} from '@angular/common';
 import {MatDialog} from '@angular/material/dialog';
 import {LoginDialogComponent} from '../login-dialog/login-dialog.component';
 import {MatButton} from '@angular/material/button';
+import {ButtonComponent} from '../button/button.component';
 
 @Component({
   selector: 'app-user',
   imports: [
     FormsModule,
     NgIf,
-    MatButton
+    MatButton,
+    ButtonComponent
   ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'

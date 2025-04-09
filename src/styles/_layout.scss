@@ -3,6 +3,6 @@
 @mixin flex-layout($direction) {
   display: flex;
   flex-direction: $direction;
-  gap: s.$default-gap-size;
+  gap: s.$default-spacing-value;
   align-items: center;
 }

@@ -1,8 +1,24 @@
-<div *ngIf="user; else loginForm">
-  <p>Witaj, {{ user.username }}!</p>
-  <button (click)="logout()">🚪 Wyloguj</button>
+<div *ngIf="user; else loginForm" class="current-user">
+  <div class="current-user__icon-and-username">
+    <span class="icon material-icons material-icons-outlined">account_circle</span>
+    <span class="current-user__username">{{ user.username }}</span>
+  </div>
+
+  <app-button
+    label="Wyloguj"
+    icon="logout"
+    iconStyle="filled"
+    iconPosition="left"
+    variant="secondary"
+    (onClick)="logout()"/>
 </div>
 
 <ng-template #loginForm>
-  <button mat-button (click)="openLoginDialog()">🔓 Zaloguj</button>
+  <app-button
+    label="Zaloguj"
+    icon="login"
+    iconStyle="filled"
+    iconPosition="left"
+    variant="primary"
+    (onClick)="openLoginDialog()"/>
 </ng-template>

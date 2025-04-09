@@ -13,16 +13,17 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   gap: s.$default-spacing-value;
+  font-weight: bold;
 }
 
 .btn.primary {
-  background-color: c.$dzelapino-white;
-  color: c.$dzelapino-toxic;
+  background-color: c.$dzelapino-green;
+  color: c.$dzelapino-white;
 }
 
 .btn.secondary {
-  background-color: c.$dzelapino-white;
-  color: c.$dzelapino-blue;
+  background-color: c.$dzelapino-blue;
+  color: c.$dzelapino-white;
 }
 
 .btn.small {

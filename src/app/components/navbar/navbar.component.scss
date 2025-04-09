@@ -1,0 +1,52 @@
+@use '../../../styles/colors' as c;
+@use '../../../styles/layout' as l;
+@use '../../../styles/sizing' as s;
+@use '../../../styles/lapino' as la;
+
+.navbar {
+  background-color: c.$dzelapino-black;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: s.$smaller-spacing-value s.$larger-spacing-value;
+  border-radius: s.$default-border-radius;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-logo {
+  grid-column: 1;
+
+  > a > img {
+    height: 32px;
+    width: auto;
+  }
+}
+
+.navbar-navigation {
+  grid-column: 2;
+  justify-self: center;
+  display: flex;
+  gap: s.$larger-spacing-value;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  > a {
+    text-decoration: none;
+    font-weight: bold;
+    color: c.$dzelapino-daedric-blue;
+  }
+
+  > a:hover {
+    @include la.text-parallax;
+    transform: scale(s.$transform-scale-size-larger);
+  }
+}
+
+.navbar-user {
+  grid-column: 3;
+  display: flex;
+  align-items: center;
+}

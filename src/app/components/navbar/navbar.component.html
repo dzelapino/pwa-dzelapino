@@ -1,8 +1,17 @@
-<div>
-  <a routerLink="/home">Home</a>
+<div class="navbar">
+  <div class="navbar-logo">
+    <a routerLink="/home">
+      <img ngSrc="/favicon.ico" alt="bleble." height="512" width="512">
+    </a>
+  </div>
 
+  <div class="navbar-navigation">
+    <a routerLink="/minifig/minifig-list">Figurki</a>
 
-  <a routerLink="/cart">Cart</a>
+    <a routerLink="/cart">Cart</a>
+  </div>
 
-  <app-user/>
+  <div class="navbar-user">
+    <app-user/>
+  </div>
 </div>

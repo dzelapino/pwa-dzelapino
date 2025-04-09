@@ -1,0 +1,75 @@
+@use '../../../styles/colors' as c;
+@use '../../../styles/layout' as l;
+@use '../../../styles/sizing' as s;
+@use '../../../styles/lapino' as la;
+
+.home-page {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: s.$default-spacing-value;
+  border-radius: s.$default-border-radius;
+  background: linear-gradient(57deg, c.$dzelapino-black, c.$dzelapino-red);
+  color: c.$dzelapino-white;
+  position: relative;
+  width: min(90vw, 1400px);
+  height: 100%;
+}
+
+.home-page__main-text {
+  display: flex;
+  flex-direction: column;
+  gap: s.$default-spacing-value;
+  height: 100%;
+  padding: s.$larger-spacing-value;
+  position: relative;
+  z-index: 3;
+
+  @include la.text-parallax;
+
+  h1 {
+    font-size: 3rem;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin: 0;
+  }
+}
+
+.home-page__divider {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  width: 40px;
+  height: 150%;
+  background-color: c.$dzelapino-void;
+  transform: translate(-5%, -50%) rotate(37deg);
+  z-index: 1;
+  border-radius: s.$default-border-radius;
+}
+
+.home-page__main-image img {
+  height: auto;
+  width: 600px;
+  object-fit: contain;
+  z-index: 2;
+  position: relative;
+}
+
+@media (max-width: 950px) {
+  .home-page {
+    flex-direction: column;
+    width: 60vw;
+  }
+
+  .home-page__divider {
+    top: 40%;
+    transform: translate(-5%, -50%) rotate(78deg);
+  }
+
+  .home-page__main-image img {
+    width: 45vw;
+  }
+}
