@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {MatInput} from '@angular/material/input';
 import {MatButton} from '@angular/material/button';
 import {NgIf} from '@angular/common';
+import {ButtonComponent} from '../button/button.component';
 
 @Component({
   selector: 'app-login-dialog',
@@ -15,7 +16,8 @@ import {NgIf} from '@angular/common';
     MatDialogTitle,
     MatDialogActions,
     MatButton,
-    NgIf
+    NgIf,
+    ButtonComponent
   ],
   templateUrl: './login-dialog.component.html',
   styleUrl: './login-dialog.component.scss'

@@ -1,0 +1,16 @@
+<a [ngClass]="['app-navlink', iconOnly ? 'icon-only' : '']"
+   routerLink="{{ path }}" [attr.aria-label]="computedAriaLabel">
+
+  <span *ngIf="icon && iconPosition === 'left'">
+    <span [ngClass]="['icon', 'left', materialIconStyleClass]">{{ icon }}</span>
+  </span>
+
+  <span *ngIf="!iconOnly" class="navbar-link__label">
+    {{label}}
+  </span>
+
+  <span *ngIf="icon && iconPosition === 'right'">
+    <span [ngClass]="['icon', 'right', materialIconStyleClass]">{{ icon }}</span>
+  </span>
+
+</a>

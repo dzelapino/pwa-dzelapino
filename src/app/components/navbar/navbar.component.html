@@ -6,9 +6,19 @@
   </div>
 
   <div class="navbar-navigation">
-    <a routerLink="/minifig/minifig-list">Figurki</a>
+    <app-navlink
+      label="Figurki"
+      iconPosition="left"
+      path="/minifig/minifig-list"
+      iconStyle="filled"
+      icon="person"/>
 
-    <a routerLink="/cart">Cart</a>
+    <app-navlink
+      label="Koszyk"
+      iconPosition="left"
+      path="/cart"
+      iconStyle="filled"
+      icon="shopping_bag"/>
   </div>
 
   <div class="navbar-user">

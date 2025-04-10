@@ -1,10 +1,26 @@
 <h2 mat-dialog-title>Zaloguj się</h2>
+
 <div mat-dialog-content>
   <input matInput [(ngModel)]="username" placeholder="Wpisz nazwę użytkownika" />
   <input matInput type="password" [(ngModel)]="password" placeholder="Wpisz hasło" />
-  <p *ngIf="loginError" style="color: red;">{{ loginError }}</p>
+
+  <p *ngIf="loginError" class="login-dialog__error-message">{{ loginError }}</p>
 </div>
+
 <div mat-dialog-actions>
-  <button mat-button (click)="close()">Anuluj</button>
-  <button mat-button (click)="login()">Zaloguj</button>
+  <app-button
+    label="Anuluj"
+    icon="close"
+    iconStyle="round"
+    iconPosition="left"
+    variant="secondary"
+    (onClick)="close()"/>
+
+  <app-button
+    label="Zaloguj"
+    icon="check"
+    iconStyle="round"
+    iconPosition="left"
+    variant="primary"
+    (onClick)="login()"/>
 </div>
