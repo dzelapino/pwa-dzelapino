@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {RouterLink} from '@angular/router';
 import {ButtonComponent} from '../../components/button/button.component';
+import {CartService} from '../../services/cart.service';
+import {MinifigService} from '../../services/minifig.service';
 
 @Component({
   selector: 'app-checkout',
@@ -14,8 +16,15 @@ import {ButtonComponent} from '../../components/button/button.component';
 export class CheckoutComponent {
   isHandlingOrder : boolean = false;
 
+  constructor(private readonly cartService: CartService, private readonly minifigService: MinifigService) {}
+
   submitOrder() {
     this.isHandlingOrder = true;
+
+    this.cartService.getCart().forEach((item) => {
+      this.minifigService.setMinifigAsPurchased(item);
+    })
+
     setTimeout(() => {
       this.isHandlingOrder = false;
     }, 2000)

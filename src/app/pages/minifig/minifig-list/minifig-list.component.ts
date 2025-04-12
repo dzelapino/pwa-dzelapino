@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import {MinifigService} from '../../../services/minifig.service';
 import {Minifig} from '../../../models/minifig.model';
-import {NgForOf, NgIf} from '@angular/common';
+import {NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
 import {MinifigFormComponent} from '../minifig-form/minifig-form.component';
 import {MinifigEditComponent} from '../minifig-edit/minifig-edit.component';
 import {CartService} from '../../../services/cart.service';
+import {ButtonComponent} from '../../../components/button/button.component';
 
 @Component({
   selector: 'app-minifig-list',
@@ -12,7 +13,9 @@ import {CartService} from '../../../services/cart.service';
     NgForOf,
     MinifigFormComponent,
     MinifigEditComponent,
-    NgIf
+    NgIf,
+    ButtonComponent,
+    NgOptimizedImage
   ],
   templateUrl: './minifig-list.component.html',
   styleUrl: './minifig-list.component.scss'

@@ -27,7 +27,7 @@ export class ButtonComponent {
   @Input() iconPosition: 'left' | 'right' = 'left';
   @Input() iconOnly: boolean = false;
   @Input() ariaLabel: string = '';
-  @Input() variant: 'primary' | 'secondary' = 'primary';
+  @Input() variant: 'primary' | 'secondary' | 'dangerous' = 'primary';
   @Input() size: 'small' | 'medium' | 'large' = 'medium';
   @Input() disabled: boolean = false;
 

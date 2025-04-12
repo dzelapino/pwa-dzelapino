@@ -2,15 +2,20 @@ import { Component } from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {Minifig} from '../../models/minifig.model';
 import {CartService} from '../../services/cart.service';
-import {NgForOf, NgIf} from '@angular/common';
+import {NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
 import {Subscription} from 'rxjs';
+import {ButtonComponent} from '../../components/button/button.component';
+import {NavlinkComponent} from '../../components/navlink/navlink.component';
 
 @Component({
   selector: 'app-cart',
   imports: [
     RouterLink,
     NgForOf,
-    NgIf
+    NgIf,
+    NgOptimizedImage,
+    ButtonComponent,
+    NavlinkComponent
   ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss'

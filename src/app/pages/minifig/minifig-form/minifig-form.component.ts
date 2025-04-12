@@ -11,14 +11,21 @@ import {FormsModule} from '@angular/forms';
   styleUrl: './minifig-form.component.scss'
 })
 export class MinifigFormComponent {
-  newMinifig: Minifig = { id: 0, name: '', theme: '' };
+  newMinifig: Minifig = { id: Date.now(), name: '', image: getRandomImage(), hasBeenBought: false };
 
   @Output() addMinifigEvent = new EventEmitter<Minifig>();
 
   addMinifig(): void {
-    if (this.newMinifig.name.trim() && this.newMinifig.theme.trim()) {
+    if (this.newMinifig.name.trim()) {
       this.addMinifigEvent.emit(this.newMinifig);
-      this.newMinifig = { id: 0, name: '', theme: '' };
+      this.newMinifig = { id: Date.now(), name: '', image: getRandomImage(), hasBeenBought: false };
     }
   }
+}
+
+const imageOptions: Minifig['image'][] = ['b2', 'jarjar', 'revan', 'vader'];
+
+function getRandomImage(): Minifig['image'] {
+  const index = Math.floor(Math.random() * imageOptions.length);
+  return imageOptions[index];
 }

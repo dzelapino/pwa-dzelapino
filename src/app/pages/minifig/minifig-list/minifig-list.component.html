@@ -1,29 +1,60 @@
-<div>
+<div class="minifig-list-wrapper">
+  <ul class="minifig-list">
+    <li *ngFor="let minifig of minifigs" class="minifig-list__minifig-tile {{minifig.hasBeenBought ? 'minifig-list__minifig-tile__unavailable' : ''}}">
 
-  <span>
-    Lista figurek
-  </span>
+      <img ngSrc="/minifigs/{{ minifig.image }}.png" alt="{{ minifig.name }}" width="216" height="216"
+           class="minifig-list__minifig-image" priority="priority">
 
-  <ul>
-    <li *ngFor="let minifig of minifigs">
-      <strong>{{ minifig.name }}</strong> - {{ minifig.theme }} -
-      <span *ngIf="minifig.price !== undefined; else brakCeny">
+      <span class="minifig-list__minifig-tile__name">
+        {{ minifig.name }}
+      </span>
+
+      <span *ngIf="minifig.price !== undefined; else brakCeny" class="minifig-list__minifig-tile__price">
         {{ minifig.price }} zł
       </span>
+
       <ng-template #brakCeny>Brak ceny</ng-template>
-      <button (click)="startEditing(minifig)">✏️ Edytuj</button>
-      <button (click)="deleteMinifig(minifig.id)">❌ Usuń</button>
-      <button (click)="addToCart(minifig)" [disabled]="isInCart(minifig)">➕ Dodaj do koszyka</button>
+
+<!--      <app-button-->
+<!--        label="Edytuj"-->
+<!--        icon="edit"-->
+<!--        iconStyle="filled"-->
+<!--        iconPosition="left"-->
+<!--        variant="secondary"-->
+<!--        size="small"-->
+<!--        (onClick)="startEditing(minifig)"/>-->
+
+<!--      <app-button-->
+<!--        label="Usuń"-->
+<!--        icon="delete"-->
+<!--        iconStyle="filled"-->
+<!--        iconPosition="left"-->
+<!--        variant="dangerous"-->
+<!--        size="small"-->
+<!--        [disabled]="true"-->
+<!--        (onClick)="deleteMinifig(minifig.id)"/>-->
+
+      <div class="minifig-list__minifig-tile__purchase-button-wrapper">
+        <app-button
+          label="Kup"
+          icon="add"
+          iconStyle="filled"
+          iconPosition="left"
+          variant="primary"
+          size="small"
+          [disabled]="isInCart(minifig) || minifig.hasBeenBought"
+          (onClick)="addToCart(minifig)"/>
+      </div>
     </li>
   </ul>
 
-  <app-minifig-edit
-    *ngIf="editedMinifig"
-    [minifig]="editedMinifig"
-    (minifigUpdated)="onMinifigUpdated($event)"
-    (cancelEditing)="cancelEditing()">
-  </app-minifig-edit>
+<!--  <app-minifig-edit-->
+<!--    *ngIf="editedMinifig"-->
+<!--    [minifig]="editedMinifig"-->
+<!--    (minifigUpdated)="onMinifigUpdated($event)"-->
+<!--    (cancelEditing)="cancelEditing()">-->
+<!--  </app-minifig-edit>-->
 
-  <app-minifig-form (addMinifigEvent)="onMinifigAdded($event)"></app-minifig-form>
+<!--  <app-minifig-form (addMinifigEvent)="onMinifigAdded($event)"></app-minifig-form>-->
 
 </div>

@@ -39,6 +39,6 @@ export class CartService {
 
   getTotalPrice(): number {
     const cart = this.getCart();
-    return cart.reduce((total, minifig) => total + (minifig.price || 0), 0);
+    return cart.reduce((total, minifig) => total + (minifig.price ?? 0), 0);
   }
 }

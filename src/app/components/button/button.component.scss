@@ -26,9 +26,19 @@
   color: c.$dzelapino-white;
 }
 
+.btn.dangerous {
+  background-color: c.$dzelapino-red;
+  color: c.$dzelapino-white;
+}
+
 .btn.small {
   font-size: s.$font-size-small;
   padding: s.$smaller-spacing-value s.$default-spacing-value;
+  gap: s.$smaller-spacing-value;
+
+  .icon.left.material-icons {
+    margin: 0;
+  }
 }
 
 .btn.large {

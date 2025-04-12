@@ -1,17 +1,50 @@
-<div>
-  <h3>Twój koszyk</h3>
-  <ul>
-    <li *ngFor="let minifig of cart">
-      <strong>{{ minifig.name }}</strong> - {{ minifig.theme }} - {{ minifig.price }}
-      <button (click)="removeFromCart(minifig)">❌ Usuń</button>
+<div class="cart-wrapper">
+  <h2 *ngIf="cart.length > 0">Twój koszyk</h2>
+
+  <ul class="cart__minifig-list">
+    <li *ngFor="let minifig of cart" class="cart__minifig-list__minifig-tile">
+      <img ngSrc="/minifigs/{{ minifig.image }}.png" alt="{{ minifig.name }}" width="216" height="216"
+           class="cart__minifig-image" priority="priority">
+
+      <div class="cart__minifig-tile__right-part">
+        <span class="cart__minifig-tile__minifig-name">
+          {{ minifig.name }}
+        </span>
+
+        <span class="cart__minifig-tile__minifig-price">
+          {{ minifig.price }}
+        </span>
+
+        <div class="cart__minifig-tile__delete-button-wrapper">
+          <app-button
+            label="Usuń"
+            icon="cancel"
+            iconStyle="filled"
+            iconPosition="left"
+            variant="dangerous"
+            size="small"
+            (onClick)="removeFromCart(minifig)"/>
+        </div>
+      </div>
     </li>
   </ul>
 
-  <p *ngIf="cart.length === 0">Koszyk jest pusty.</p>
+  <p *ngIf="cart.length === 0" class="cart__empty-cart-message">
+    Koszyk jest pusty.
+  </p>
 
-  <a routerLink="/checkout">Checkout</a>
+  <div *ngIf="cart.length > 0" class="cart__checkout-and-value-wrapper">
+    <app-navlink
+      label="Złóż zamówienie"
+      iconPosition="left"
+      path="/checkout"
+      iconStyle="filled"
+      icon="military_tech"/>
 
-  <p><strong>Całkowita wartość zamówienia:</strong> {{ totalPrice }}</p>
+    <p class="cart__total-price">
+      Całkowita wartość zamówienia: {{ totalPrice }}
+    </p>
+  </div>
 
   <p *ngIf="notificationMessage" class="notification">{{ notificationMessage }}</p>
 </div>

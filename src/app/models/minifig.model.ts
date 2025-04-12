@@ -1,6 +1,7 @@
 export interface Minifig {
   id: number;
   name: string;
-  theme: string;
+  image: 'b2' | 'jarjar' | 'revan' | 'vader';
   price?: number;
+  hasBeenBought: boolean;
 }

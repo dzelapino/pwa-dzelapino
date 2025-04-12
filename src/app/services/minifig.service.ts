@@ -12,37 +12,38 @@ export class MinifigService {
   minifigs$ = this.minifigsSource.asObservable();
 
   private loadMinifigs(): Minifig[] {
-    const storedMinifigs = localStorage.getItem(this.localStorageKey);
-    return storedMinifigs ? JSON.parse(storedMinifigs) : [
-      { id: 1, name: 'Darth Vader', theme: 'Star Wars', price: 49.99 },
-      { id: 2, name: 'Harry Potter', theme: 'Harry Potter', price: 39.99 },
-      { id: 3, name: 'Spider-Man', theme: 'Marvel', price: 29.99 },
-      { id: 4, name: 'Astronaut', theme: 'City', price: 19.99 }
+    return [
+      { id: 1, name: 'Darth Vader', image: 'vader', price: 49.99, hasBeenBought: false },
+      { id: 2, name: 'Jar Jar', image: 'jarjar', price: 19.99, hasBeenBought: false },
+      { id: 3, name: 'B2', image: 'b2', price: 69.99, hasBeenBought: false },
+      { id: 4, name: 'Revan', image: 'revan', price: 999.99, hasBeenBought: false }
     ];
   }
 
-  private saveMinifigs(minifigs: Minifig[]): void {
-    localStorage.setItem(this.localStorageKey, JSON.stringify(minifigs));
-  }
-
   addMinifig(minifig: Minifig): void {
-    const currentMinifigs = this.minifigsSource.value;
-    const updatedMinifigs = [...currentMinifigs, minifig];
-    this.minifigsSource.next(updatedMinifigs);
-    this.saveMinifigs(updatedMinifigs);
+    const current = this.minifigsSource.value;
+    this.minifigsSource.next([...current, minifig]);
   }
 
   deleteMinifig(id: number): void {
-    const updatedMinifigs = this.minifigsSource.value.filter(m => m.id !== id);
-    this.minifigsSource.next(updatedMinifigs);
-    this.saveMinifigs(updatedMinifigs);
+    const updated = this.minifigsSource.value.filter(m => m.id !== id);
+    this.minifigsSource.next(updated);
   }
 
   updateMinifig(updatedMinifig: Minifig): void {
-    const updatedMinifigs = this.minifigsSource.value.map(minifig =>
+    const updated = this.minifigsSource.value.map(minifig =>
       minifig.id === updatedMinifig.id ? updatedMinifig : minifig
     );
-    this.minifigsSource.next(updatedMinifigs);
-    this.saveMinifigs(updatedMinifigs);
+    this.minifigsSource.next(updated);
+  }
+
+  setMinifigAsPurchased(boughtMinifig: Minifig): void {
+    const updated = this.minifigsSource.value.map(minifig =>
+      minifig.id === boughtMinifig.id
+        ? { ...minifig, hasBeenBought: true }
+        : minifig
+    );
+
+    this.minifigsSource.next(updated);
   }
 }

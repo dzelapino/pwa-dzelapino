@@ -1,10 +1,62 @@
-<div>
-  <h1>
-    Checkout
-  </h1>
+<div class="checkout">
+  <h2>
+    Podsumowanie
+  </h2>
+
+  <div class="checkout__order-data-mock">
+    <div class="checkout__order-data-mock__field-wrapper">
+      <span>
+        Imie
+      </span>
+
+      <div class="checkout__order-data-mock__fake-input">
+        JarJar
+      </div>
+    </div>
+
+    <div class="checkout__order-data-mock__field-wrapper">
+      <span>
+        Nazwisko
+      </span>
+
+      <div class="checkout__order-data-mock__fake-input">
+        Binks
+      </div>
+    </div>
+
+    <div class="checkout__order-data-mock__field-wrapper">
+      <span>
+        Adres
+      </span>
+
+      <div class="checkout__order-data-mock__fake-input">
+        Senate 1/1
+      </div>
+    </div>
+
+    <div class="checkout__order-data-mock__field-wrapper">
+      <span>
+        Planeta
+      </span>
+
+      <div class="checkout__order-data-mock__fake-input">
+        Coruscant
+      </div>
+    </div>
+
+    <div class="checkout__order-data-mock__field-wrapper">
+      <span>
+        Telefon
+      </span>
+
+      <div class="checkout__order-data-mock__fake-input">
+        +1000 500 100 900
+      </div>
+    </div>
+  </div>
 
   <app-button
-    label="Place order"
+    label="Złóż zamówienie"
     icon="add"
     iconStyle="filled"
     iconPosition="left"
@@ -13,5 +65,5 @@
     (onClick)="submitOrder()"
   ></app-button>
 
-  <a routerLink="/order">Place order</a>
+<!--  <a routerLink="/order">Place order</a>-->
 </div>
