@@ -33,7 +33,7 @@
     Koszyk jest pusty.
   </p>
 
-  <div *ngIf="cart.length > 0" class="cart__checkout-and-value-wrapper">
+  <div *ngIf="cart.length > 0 && isLoggedIn()" class="cart__checkout-and-value-wrapper">
     <app-navlink
       label="Złóż zamówienie"
       iconPosition="left"

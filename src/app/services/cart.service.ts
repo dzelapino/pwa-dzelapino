@@ -28,6 +28,14 @@ export class CartService {
     }
   }
 
+  clearCart(): void {
+    const user = this.authService.getUser();
+    if (user) {
+      user.cart = [];
+      localStorage.setItem('user', JSON.stringify(user));
+    }
+  }
+
   getCart(): Minifig[] {
     const user = this.authService.getUser();
     return user ? user.cart : [];

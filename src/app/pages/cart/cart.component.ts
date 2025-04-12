@@ -6,6 +6,7 @@ import {NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
 import {Subscription} from 'rxjs';
 import {ButtonComponent} from '../../components/button/button.component';
 import {NavlinkComponent} from '../../components/navlink/navlink.component';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-cart',
@@ -26,7 +27,7 @@ export class CartComponent {
   notificationMessage: string = '';
   private notificationSubscription: Subscription | undefined;
 
-  constructor(private readonly cartService: CartService) {}
+  constructor(private readonly authService: AuthService, private readonly cartService: CartService) {}
 
   ngOnInit(): void {
     this.cart = this.cartService.getCart();
@@ -50,5 +51,9 @@ export class CartComponent {
     this.cartService.removeFromCart(minifig);
     this.cart = this.cartService.getCart();
     this.totalPrice = this.cartService.getTotalPrice();
+  }
+
+  isLoggedIn(): boolean {
+    return this.authService.getUser() !== null;
   }
 }
