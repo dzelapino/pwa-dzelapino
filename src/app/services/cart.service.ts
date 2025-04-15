@@ -47,6 +47,7 @@ export class CartService {
 
   getTotalPrice(): number {
     const cart = this.getCart();
-    return cart.reduce((total, minifig) => total + (minifig.price ?? 0), 0);
+    const total = cart.reduce((sum, minifig) => sum + (minifig.price ?? 0), 0);
+    return Math.round((total + Number.EPSILON) * 100) / 100;
   }
 }

@@ -6,3 +6,9 @@
   gap: s.$default-spacing-value;
   align-items: center;
 }
+
+@mixin handy-size-only {
+  @media (max-width: s.$handy-width) {
+    @content;
+  }
+}

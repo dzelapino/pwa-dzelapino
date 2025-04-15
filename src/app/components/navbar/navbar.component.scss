@@ -40,3 +40,15 @@
   flex-grow: 1;
   justify-content: end;
 }
+
+@include l.handy-size-only {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navbar-user {
+    width: 100%;
+    justify-content: center;
+  }
+}

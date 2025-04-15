@@ -16,6 +16,7 @@ ul.cart__minifig-list {
   @include l.flex-layout(row);
 
   flex-wrap: wrap;
+  justify-content: center;
   list-style-type: none;
   padding: 0;
   margin: 0;
