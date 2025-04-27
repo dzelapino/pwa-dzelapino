@@ -2,13 +2,15 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Minifig} from '../../../models/minifig.model';
 import {FormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
+import {ButtonComponent} from "../../../components/button/button.component";
 
 @Component({
   selector: 'app-minifig-edit',
-  imports: [
-    FormsModule,
-    NgIf
-  ],
+    imports: [
+        FormsModule,
+        NgIf,
+        ButtonComponent
+    ],
   templateUrl: './minifig-edit.component.html',
   styleUrl: './minifig-edit.component.scss'
 })

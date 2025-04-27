@@ -1,12 +1,14 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {Minifig} from '../../../models/minifig.model';
 import {FormsModule} from '@angular/forms';
+import {ButtonComponent} from "../../../components/button/button.component";
 
 @Component({
   selector: 'app-minifig-form',
-  imports: [
-    FormsModule
-  ],
+    imports: [
+        FormsModule,
+        ButtonComponent
+    ],
   templateUrl: './minifig-form.component.html',
   styleUrl: './minifig-form.component.scss'
 })

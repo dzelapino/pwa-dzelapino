@@ -23,7 +23,7 @@ ul.minifig-list {
 li.minifig-list__minifig-tile {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(7, 1fr);
+  grid-template-rows: repeat(9, 1fr);
 
   justify-content: center;
   align-items: center;
@@ -52,11 +52,24 @@ li.minifig-list__minifig-tile {
     text-align: center;
   }
 
-  > div.minifig-list__minifig-tile__purchase-button-wrapper {
+  > div.minifig-list__minifig-tile__purchase-button-wrapper,
+  > div.minifig-list__minifig-tile__edit-button-wrapper,
+  > div.minifig-list__minifig-tile__delete-button-wrapper {
     @include l.flex-layout(row);
     justify-content: center;
     grid-column: 1/-1;
-    grid-row: 7/-1;
+  }
+
+  > div.minifig-list__minifig-tile__purchase-button-wrapper {
+    grid-row: 7/8;
+  }
+
+  > div.minifig-list__minifig-tile__edit-button-wrapper {
+    grid-row: 8/9;
+  }
+
+  > div.minifig-list__minifig-tile__delete-button-wrapper {
+    grid-row: 9/-1;
   }
 
 }

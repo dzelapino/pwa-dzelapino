@@ -15,25 +15,6 @@
 
       <ng-template #brakCeny>Brak ceny</ng-template>
 
-<!--      <app-button-->
-<!--        label="Edytuj"-->
-<!--        icon="edit"-->
-<!--        iconStyle="filled"-->
-<!--        iconPosition="left"-->
-<!--        variant="secondary"-->
-<!--        size="small"-->
-<!--        (onClick)="startEditing(minifig)"/>-->
-
-<!--      <app-button-->
-<!--        label="Usuń"-->
-<!--        icon="delete"-->
-<!--        iconStyle="filled"-->
-<!--        iconPosition="left"-->
-<!--        variant="dangerous"-->
-<!--        size="small"-->
-<!--        [disabled]="true"-->
-<!--        (onClick)="deleteMinifig(minifig.id)"/>-->
-
       <div class="minifig-list__minifig-tile__purchase-button-wrapper">
         <app-button
           label="Kup"
@@ -45,16 +26,39 @@
           [disabled]="isInCart(minifig) || minifig.hasBeenBought"
           (onClick)="addToCart(minifig)"/>
       </div>
+
+      <div class="minifig-list__minifig-tile__edit-button-wrapper">
+        <app-button
+          label="Edytuj"
+          icon="edit"
+          iconStyle="filled"
+          iconPosition="left"
+          variant="secondary"
+          size="small"
+          (onClick)="startEditing(minifig)"/>
+      </div>
+
+      <div class="minifig-list__minifig-tile__delete-button-wrapper">
+        <app-button
+          label="Usuń"
+          icon="delete"
+          iconStyle="filled"
+          iconPosition="left"
+          variant="dangerous"
+          size="small"
+          [disabled]="true"
+          (onClick)="deleteMinifig(minifig.id)"/>
+      </div>
     </li>
   </ul>
 
-<!--  <app-minifig-edit-->
-<!--    *ngIf="editedMinifig"-->
-<!--    [minifig]="editedMinifig"-->
-<!--    (minifigUpdated)="onMinifigUpdated($event)"-->
-<!--    (cancelEditing)="cancelEditing()">-->
-<!--  </app-minifig-edit>-->
+  <app-minifig-edit
+    *ngIf="editedMinifig"
+    [minifig]="editedMinifig"
+    (minifigUpdated)="onMinifigUpdated($event)"
+    (cancelEditing)="cancelEditing()">
+  </app-minifig-edit>
 
-<!--  <app-minifig-form (addMinifigEvent)="onMinifigAdded($event)"></app-minifig-form>-->
+  <app-minifig-form (addMinifigEvent)="onMinifigAdded($event)"></app-minifig-form>
 
 </div>

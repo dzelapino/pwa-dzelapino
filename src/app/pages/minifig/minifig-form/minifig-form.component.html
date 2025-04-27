@@ -1,4 +1,15 @@
-<h3>Dodaj nową minifigurkę</h3>
-<input type="text" [(ngModel)]="newMinifig.name" placeholder="Nazwa">
-<input type="number" [(ngModel)]="newMinifig.price" placeholder="Cena" step="0.01">
-<button (click)="addMinifig()">➕ Dodaj</button>
+<div class="minifig-add">
+  <h3>Dodaj nową minifigurkę</h3>
+
+  <input type="text" [(ngModel)]="newMinifig.name" placeholder="Nazwa">
+  <input type="number" [(ngModel)]="newMinifig.price" placeholder="Cena" step="0.01">
+
+  <app-button
+    label="Dodaj"
+    icon="add"
+    iconStyle="filled"
+    iconPosition="left"
+    variant="primary"
+    size="small"
+    (onClick)="addMinifig()"/>
+</div>

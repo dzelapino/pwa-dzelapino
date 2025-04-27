@@ -1,7 +1,25 @@
-<div *ngIf="minifig">
+<div *ngIf="minifig" class="edit-minifig">
   <h3>Edytuj Minifigurkę</h3>
+
   <input type="text" [(ngModel)]="minifig.name" placeholder="Nazwa">
+
   <input type="number" [(ngModel)]="minifig.price" placeholder="Cena" step="0.01">
-  <button (click)="updateMinifig()">💾 Zapisz</button>
-  <button (click)="cancel()">❌ Anuluj</button>
+
+  <app-button
+    label="Zapisz"
+    icon="save"
+    iconStyle="filled"
+    iconPosition="left"
+    variant="primary"
+    size="small"
+    (onClick)="updateMinifig()"/>
+
+  <app-button
+    label="Anuluj"
+    icon="cancel"
+    iconStyle="filled"
+    iconPosition="left"
+    variant="secondary"
+    size="small"
+    (onClick)="cancel()"/>
 </div>
